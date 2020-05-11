@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Snake game</title>    
+<style type="text/css">
+	body
+	{
+		background-color:#FDF701;
+	}
+    canvas
+	{
+		background-color: black;
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%,-50%);
+	}
+	h1
+	{
+		text-align:center;
+		color:#5076F9;
+	}
+	.how
+	{
+		position:absolute;
+		top:50%;
+		left:10%;
+	}
+	a:link, a:visited
+	{
+		color:red;
+		text-decoration:none;
+	}
+	
+	
+	#popup
+	{
+		height:100vh;
+		width:100%;
+		position:fixed;
+		top:0;
+		left:0;
+		background-color:rgba(0,0,0,0.8);
+		z-index:9999;
+		opacity:0;
+		visibility:hidden;
+		transition:all 0.3s;
+	}
+	#popup:target
+	{
+		opacity:1 !important;
+		visibility:visible !important;
+	}
+	#popup-main
+	{
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%,-50%);
+		color:white;
+		width:75%;
+		background-color:#4AC0FD;
+		box-shadow:0 2rem 4rem rgba(244,55,6,0.8);
+		border-radius:5px;
+	}
+	#popup-close:link, #popup-close:visited
+	{
+		color: #FF0000;
+		position: absolute;
+		top: 0.2rem;
+		right: 0.5rem;
+		display: inline-block;
+		text-decoration: none;
+		font-size: 2rem;
+	}
+</style>
+
+<script src="snake.js"></script>
+</head>
+    
+<body onload="init();">
+	<h1>SNAKE</h1>
+	<h3 class="how">
+		<a href="#popup">How To Play</a>
+	</h3>
+	<div class="speed">
+	
+		<h3>SPEED</h3>
+		<form>
+			<input type="submit" value="Slow" onClick()="Slow();"/>
+			<input type="submit" value="Normal" onClick()="Normal();"/>
+			<input type="submit" value="Fast"/ onClick()="Fast();">
+		</form>
+	</div>
+	
+    <canvas id="myCanvas" width="600" height="450">
+    </canvas>
+	
+	<div id="popup">
+		<div id="popup-main">
+			<a href="#myCanvas" id="popup-close">&times</a>
+			<ul>
+				<li><h3>Use the arrow buttons to move the snake</h3></li>
+				<li><h3>Snake length grows by eating food</h3></li>
+				<li><h3>Game ends if you hit the grid or the walls or snake eats itself</h3></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
